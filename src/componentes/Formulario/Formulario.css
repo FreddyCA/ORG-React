@@ -18,3 +18,24 @@
     font-weight: 400;
     color: #212121;
 }
+@media screen and (max-width: 768px) {
+    .formulario form {
+        padding: 8px 40px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .formulario {
+        margin: 0;
+        padding: 1rem;
+    }
+
+    .formulario form {
+        min-width: 100%;
+        padding: 8px 20px;
+    }
+
+    .formulario h2 {
+        font-size: 24px;
+    }
+}

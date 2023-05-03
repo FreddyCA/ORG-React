@@ -16,12 +16,23 @@
 
 .orgSection__contenedor--img {
     position: absolute;
-    width: 992px;
-    display: flex;
-    justify-content: end;
+    right: 2rem;
 }
 
 .orgSection img {
     cursor: pointer;
     box-sizing: border-box;
 }
+
+@media screen and (max-width: 576px) {
+    .orgSection {
+        align-items: start;
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+
+    .orgSection__contenedor--img{
+        right: 1rem;
+    }
+}
+

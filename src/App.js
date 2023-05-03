@@ -4,10 +4,60 @@ import Header from "./componentes/Header/Header.js";
 import Formulario from "./componentes/Formulario/Formulario";
 import MiOrg from "./componentes/MiOrg";
 import Equipo from "./componentes/Equipo";
+import Footer from "./componentes/Footer";
 
 function App() {
   const [mostrarFormulario, actualizarMostrar] = useState(false);
-  const [colaboradores, actualizarColaboradores] = useState([]);
+  const [colaboradores, actualizarColaboradores] = useState([
+    {
+      equipo: "Front End",
+      foto: "https://github.com/FreddyCA.png",
+      nombre: "Carlos",
+      puesto: "Dev Jr"
+    },
+    {
+      equipo: "Front End",
+      foto: "https://github.com/FreddyCA.png",
+      nombre: "Carlos",
+      puesto: "Dev Jr"
+    },
+    {
+      equipo: "Front End",
+      foto: "https://github.com/FreddyCA.png",
+      nombre: "Carlos",
+      puesto: "Dev Jr"
+    },
+    {
+      equipo: "Front End",
+      foto: "https://github.com/FreddyCA.png",
+      nombre: "Carlos",
+      puesto: "Dev Jr"
+    },
+    {
+      equipo: "Front End",
+      foto: "https://github.com/FreddyCA.png",
+      nombre: "Carlos",
+      puesto: "Dev Jr"
+    },
+    {
+      equipo: "Devops",
+      foto: "https://github.com/FreddyCA.png",
+      nombre: "Carlos",
+      puesto: "Dev Jr"
+    },
+    {
+      equipo: "Móvil",
+      foto: "https://github.com/FreddyCA.png",
+      nombre: "Carlos",
+      puesto: "Dev Jr"
+    },
+    {
+      equipo: "Data Science",
+      foto: "https://github.com/FreddyCA.png",
+      nombre: "Carlos",
+      puesto: "Dev Jr"
+    }
+  ]);
   const cambiarMostrar = () => {
     console.log("cambio");
     actualizarMostrar(!mostrarFormulario);
@@ -60,7 +110,6 @@ function App() {
     <div>
       <Header />
 
-      {/* {mostrarFormulario ? <Formulario /> : <></>} */}
       {mostrarFormulario && (
         <Formulario
           equipos={equipos.map((equipo) => equipo.titulo)}
@@ -71,8 +120,11 @@ function App() {
       <MiOrg cambiarMostrar={cambiarMostrar}></MiOrg>
 
       {equipos.map((equipo) => {
-        return <Equipo datos={equipo} key={equipo.titulo} colaboradores={colaboradores}></Equipo>;
+        return <Equipo datos={equipo} key={equipo.titulo} colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}></Equipo>;
       })}
+
+      <Footer></Footer>
+
     </div>
   );
 }

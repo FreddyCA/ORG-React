@@ -1,0 +1,22 @@
+.footer {
+    height: 215px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 160px;
+}
+
+.redes {
+    display: flex;
+    box-sizing: border-box;
+    gap: 60px;
+    align-items: center;
+}
+
+.footer strong {
+    color: #fff;
+}
+
+.redes img {
+    cursor: pointer;
+}
