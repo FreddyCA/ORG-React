@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Formulario.css";
-import CampoTexto from "../CampoTexto";
+import Campo from "../Campo";
 import ListaOpciones from "../ListaOpciones";
 import BotonForm from "../BotonForm";
 
@@ -10,47 +10,54 @@ const Formulario = (props) => {
   const [foto, actualizarFoto] = useState("");
   const [equipo, actualizarEquipo] = useState("");
 
-  const {registrarColaborador} = props
+  const [titulo, actualizarTitulo] = useState("");
+  const [color, actualizarColor] = useState("");
+
+  const { registrarColaborador, crearEquipo } = props;
 
   const manejarEnvio = (e) => {
     e.preventDefault();
-    console.log("Manejar el envío");
     let datosAEnviar = {
       nombre,
       puesto,
       foto,
-      equipo
+      equipo,
     };
-    registrarColaborador(datosAEnviar)
+    registrarColaborador(datosAEnviar);
   };
+
+  const manejarNuevoEquipo = (e) => {
+    e.preventDefault()
+    crearEquipo({titulo, colorPrimario: color})
+  }
 
   return (
     <section className="formulario">
       <form onSubmit={manejarEnvio}>
         <h2>Rellena el formulario para agregar el colaborador</h2>
-        <CampoTexto
+        <Campo
           titulo="Nombre"
           placeholder="Ingresar nombre"
           required={true}
           valor={nombre}
           actualizarValor={actualizarNombre}
-        ></CampoTexto>
+        ></Campo>
 
-        <CampoTexto
+        <Campo
           titulo="Puesto"
           placeholder="Ingresar puesto"
           required
           valor={puesto}
           actualizarValor={actualizarPuesto}
-        ></CampoTexto>
+        ></Campo>
 
-        <CampoTexto
+        <Campo
           titulo="Foto"
           placeholder="Ingresar enlace de foto"
           required
           valor={foto}
           actualizarValor={actualizarFoto}
-        ></CampoTexto>
+        ></Campo>
 
         <ListaOpciones
           valor={equipo}
@@ -58,6 +65,28 @@ const Formulario = (props) => {
           equipos={props.equipos}
         ></ListaOpciones>
         <BotonForm texto="Crear colaborador">Crear</BotonForm>
+      </form>
+
+      <form onSubmit={manejarNuevoEquipo}>
+        <h2>Rellena el formulario para agregar el Equipo</h2>
+        <Campo
+          titulo="Título"
+          placeholder="Ingresar título"
+          required={true}
+          valor={titulo}
+          actualizarValor={actualizarTitulo}
+        ></Campo>
+
+        <Campo
+          titulo="Color"
+          placeholder="Ingresar el color en Hex."
+          required
+          valor={color}
+          actualizarValor={actualizarColor}
+          type="color"
+        ></Campo>
+
+        <BotonForm>Registrar Equipo</BotonForm>
       </form>
     </section>
   );

@@ -1,10 +1,10 @@
 .equipo {
     width: 100%;
-    /* background-color: #D9f7e9; */
     padding: 32px;
     box-sizing: border-box;
     text-align: center;
     font-size: 32px;
+    position: relative;
 }
 .equipo h3 {
     display: inline-block;
@@ -21,4 +21,9 @@
     gap: 40px;
 }
 
+.inputColor {
+    position: absolute;
+    right: 20px;
+    top: 70px;
+}
  

@@ -30,6 +30,9 @@
         padding: 0 1rem;
         box-sizing: border-box;
     }
+    .title {
+        font-size: 24px;
+    }
 
     .orgSection__contenedor--img{
         right: 1rem;

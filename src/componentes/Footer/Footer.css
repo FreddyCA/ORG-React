@@ -1,6 +1,8 @@
 .footer {
     height: 215px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     align-items: center;
     justify-content: space-between;
     padding: 0 160px;
@@ -19,4 +21,17 @@
 
 .redes img {
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+        padding: 0 60px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .footer {
+        padding: 1rem 0;
+        flex-direction: column;
+    }
 }
